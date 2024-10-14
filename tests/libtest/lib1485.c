@@ -35,7 +35,7 @@ struct transfer_status {
   int http_status;
 };
 
-static size_t header_callback(void *ptr, size_t size, size_t nmemb,
+static size_t header_callback(char *ptr, size_t size, size_t nmemb,
                               void *userp)
 {
   struct transfer_status *st = (struct transfer_status *)userp;
