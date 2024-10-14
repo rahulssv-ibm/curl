@@ -1384,7 +1384,7 @@ CURL_EXTERN CURLcode curl_ws_send(CURL *curl, const void *buffer,
   return CURLE_NOT_BUILT_IN;
 }
 
-CURL_EXTERN const struct curl_ws_frame *curl_ws_meta(struct Curl_easy *data)
+CURL_EXTERN const struct curl_ws_frame *curl_ws_meta(CURL *data)
 {
   (void)data;
   return NULL;
