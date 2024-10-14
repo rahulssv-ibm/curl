@@ -31,11 +31,11 @@
 
 #define MD5_DIGEST_LEN  16
 
-typedef CURLcode (* Curl_MD5_init_func)(void *context);
-typedef void (* Curl_MD5_update_func)(void *context,
-                                      const unsigned char *data,
-                                      unsigned int len);
-typedef void (* Curl_MD5_final_func)(unsigned char *result, void *context);
+typedef CURLcode (*Curl_MD5_init_func)(void *context);
+typedef void (*Curl_MD5_update_func)(void *context,
+                                     const unsigned char *data,
+                                     unsigned int len);
+typedef void (*Curl_MD5_final_func)(unsigned char *result, void *context);
 
 struct MD5_params {
   Curl_MD5_init_func     md5_init_func;   /* Initialize context procedure */
