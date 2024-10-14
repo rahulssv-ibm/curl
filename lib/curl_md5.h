@@ -50,8 +50,8 @@ struct MD5_context {
   void                  *md5_hashctx;   /* Hash function context */
 };
 
-extern const struct MD5_params Curl_DIGEST_MD5[1];
-extern const struct HMAC_params Curl_HMAC_MD5[1];
+extern const struct MD5_params Curl_DIGEST_MD5;
+extern const struct HMAC_params Curl_HMAC_MD5;
 
 CURLcode Curl_md5it(unsigned char *output, const unsigned char *input,
                     const size_t len);

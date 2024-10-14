@@ -563,25 +563,21 @@ static void my_md5_final(unsigned char *result, void *in)
 
 #endif /* CRYPTO LIBS */
 
-const struct HMAC_params Curl_HMAC_MD5[] = {
-  {
-    my_md5_init,        /* Hash initialization function. */
-    my_md5_update,      /* Hash update function. */
-    my_md5_final,       /* Hash computation end function. */
-    sizeof(my_md5_ctx), /* Size of hash context structure. */
-    64,                 /* Maximum key length. */
-    16                  /* Result size. */
-  }
+const struct HMAC_params Curl_HMAC_MD5 = {
+  my_md5_init,        /* Hash initialization function. */
+  my_md5_update,      /* Hash update function. */
+  my_md5_final,       /* Hash computation end function. */
+  sizeof(my_md5_ctx), /* Size of hash context structure. */
+  64,                 /* Maximum key length. */
+  16                  /* Result size. */
 };
 
-const struct MD5_params Curl_DIGEST_MD5[] = {
-  {
-    my_md5_init,        /* Digest initialization function */
-    my_md5_update,      /* Digest update function */
-    my_md5_final,       /* Digest computation end function */
-    sizeof(my_md5_ctx), /* Size of digest context struct */
-    16                  /* Result size */
-  }
+const struct MD5_params Curl_DIGEST_MD5 = {
+  my_md5_init,        /* Digest initialization function */
+  my_md5_update,      /* Digest update function */
+  my_md5_final,       /* Digest computation end function */
+  sizeof(my_md5_ctx), /* Size of digest context struct */
+  16                  /* Result size */
 };
 
 /*

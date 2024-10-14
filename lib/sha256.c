@@ -527,15 +527,13 @@ CURLcode Curl_sha256it(unsigned char *output, const unsigned char *input,
 }
 
 
-const struct HMAC_params Curl_HMAC_SHA256[] = {
-  {
-    my_sha256_init,        /* Hash initialization function. */
-    my_sha256_update,      /* Hash update function. */
-    my_sha256_final,       /* Hash computation end function. */
-    sizeof(my_sha256_ctx), /* Size of hash context structure. */
-    64,                    /* Maximum key length. */
-    32                     /* Result size. */
-  }
+const struct HMAC_params Curl_HMAC_SHA256 = {
+  my_sha256_init,        /* Hash initialization function. */
+  my_sha256_update,      /* Hash update function. */
+  my_sha256_final,       /* Hash computation end function. */
+  sizeof(my_sha256_ctx), /* Size of hash context structure. */
+  64,                    /* Maximum key length. */
+  32                     /* Result size. */
 };
 
 
