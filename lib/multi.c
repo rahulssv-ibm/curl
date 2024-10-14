@@ -1515,9 +1515,9 @@ CURLMcode curl_multi_wakeup(CURLM *m)
   /* this function is usually called from another thread,
      it has to be careful only to access parts of the
      Curl_multi struct that are constant */
+  struct Curl_multi *multi = m;
 
 #if defined(ENABLE_WAKEUP) && !defined(USE_WINSOCK)
-  struct Curl_multi *multi = m;
 #ifdef USE_EVENTFD
   const void *buf;
   const uint64_t val = 1;
