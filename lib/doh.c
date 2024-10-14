@@ -238,14 +238,14 @@ static int doh_done(struct Curl_easy *doh, CURLcode result)
   return 0;
 }
 
-#define ERROR_CHECK_SETOPT(x,y) \
-do {                                          \
-  result = curl_easy_setopt(doh, x, y);       \
-  if(result &&                                \
-     result != CURLE_NOT_BUILT_IN &&          \
-     result != CURLE_UNKNOWN_OPTION)          \
-    goto error;                               \
-} while(0)
+#define ERROR_CHECK_SETOPT(x,y)                         \
+  do {                                                  \
+    result = curl_easy_setopt((CURL *)doh, x, y);       \
+    if(result &&                                        \
+       result != CURLE_NOT_BUILT_IN &&                  \
+       result != CURLE_UNKNOWN_OPTION)                  \
+      goto error;                                       \
+  } while(0)
 
 static CURLcode doh_run_probe(struct Curl_easy *data,
                               struct doh_probe *p, DNStype dnstype,
