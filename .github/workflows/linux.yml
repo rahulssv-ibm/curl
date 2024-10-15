@@ -5,6 +5,7 @@
 name: Linux
 
 'on':
+  workflow_dispatch:
   push:
     branches:
       - master
@@ -61,7 +62,7 @@ env:
 jobs:
   linux:
     name: ${{ matrix.build.generate && 'CM' || 'AM' }} ${{ matrix.build.name }}
-    runs-on: 'ubuntu-latest'
+    runs-on: 'ubuntu-22.04-ppc64le'
     container: ${{ matrix.build.container }}
     timeout-minutes: 45
     strategy:
